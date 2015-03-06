@@ -6,17 +6,11 @@ var express    = require('express');
 var bodyParser = require('body-parser');
 var app        = express();
 
-// get config
-var db = require('./config/db');
-
 // configure app
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 var port     = process.env.PORT || 3555; // set our port
-
-var mongoose = require('mongoose');
-mongoose.connect(db.url);
 
 // ROUTES FOR OUR API
 // =============================================================================
@@ -37,10 +31,6 @@ router.get('/', function(req, res) {
 });
 
 // REGISTER THE CONTROLLERS  -------------------------
-require('./app/contollers/measurements')(router);
-require('./app/contollers/recipe_types')(router);
-require('./app/contollers/recipes')(router);
-require('./app/contollers/services')(router);
 require('./app/contollers/temperature')(router);
 
 // REGISTER OUR ROUTES -------------------------------
