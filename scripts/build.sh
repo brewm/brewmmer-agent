@@ -2,4 +2,4 @@
 
 ROOT=$(dirname $(cd $(dirname $0) && pwd))
 
-sudo docker build --tag="brewm/brewmmer" $ROOT/
+sudo docker build --tag="brewm/brewmmer-agent" $ROOT/
